@@ -15,13 +15,45 @@ class Counters extends React.Component {
     ]
   };
 
+  handleDelete = (counterId) => {
+    const counters = this.state.counters.filter(
+      (counter) => counter.id !== counterId
+    );
+    this.setState({ counters });
+  };
+
+  handleReset = () => {
+    const counters = this.state.counters.map((c) => {
+      c.value = 0;
+      return c;
+    });
+    this.setState({ counters });
+  };
+
+  handleIncrement = (counter) => {
+    const counters = [...this.state.counters]; //create a copy of the counters array in the state
+    const index = counters.indexOf(counter); //find the index of the counter passed in
+    counters[index] = {...counter}; //@ that index, reassign the value as a copy of the counter object that was passed in
+    counters[index].value++; //increment the value property
+    this.setState({ counters });
+  };
+
   render() {
     return (
       <div>
+        <button
+          onClick={this.handleReset}
+          className='btn btn-primary btn-sm m-2'
+        >
+          Reset
+        </button>
         {this.state.counters.map((counter) => (
-          <ShoppingCounter key={counter.id} value={counter.value} selected>
-              <h4>Counter #{counter.id}</h4>
-          </ShoppingCounter>
+          <ShoppingCounter
+            key={counter.id}
+            onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
+            counter={counter} //you can pass in the entire counter object
+          />
         ))}
       </div>
     );
