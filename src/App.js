@@ -4,6 +4,7 @@ import Counter from './components/counter/counter.jsx';
 import Landing from './components/landing/Landing';
 import NavBar from './components/navBar/NavBar';
 import ShoppingCounter from './components/shoppingCounter'
+import Counters from './components/counters.jsx';
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
       {/* <NavBar /> */}
       <Switch>
         <Route exact path='/counter' component={Counter}/>
-        <Route exact path='/' component={ShoppingCounter} />
+        <Route exact path='/' component={Counters} />
       </Switch>
     </>
   );
