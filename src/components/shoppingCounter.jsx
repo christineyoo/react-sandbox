@@ -17,6 +17,7 @@ class ShoppingCounter extends React.Component {
         >
           Delete
         </button>
+        <br />
       </React.Fragment>
     );
   }
