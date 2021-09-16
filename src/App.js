@@ -12,14 +12,14 @@ class App extends React.Component {
     ]
   };
 
-  constructor() {
-    super();
-    console.log('App - Constructor');
-  }
+  // constructor() {
+  //   super();
+    // console.log('App - Constructor');
+  // }
 
   componentDidMount() {
     //Ajax call
-    console.log('App - Mounted');
+    // console.log('App - Mounted');
   }
 
   handleDelete = (counterId) => {
@@ -53,7 +53,7 @@ class App extends React.Component {
   };
 
   render() {
-    console.log('App - Rendered');
+    // console.log('App - Rendered');
     return (
       <React.Fragment>
         <NavBar

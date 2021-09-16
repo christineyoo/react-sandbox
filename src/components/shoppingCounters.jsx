@@ -7,7 +7,7 @@ import ShoppingCounter from './shoppingCounter';
 
 class ShoppingCounters extends React.Component {
   render() {
-    console.log('Counters - Rendered')
+    // console.log('Counters - Rendered')
     const { onReset, counters, onDelete, onIncrement, onDecrement } = this.props;
     return (
       <div>
