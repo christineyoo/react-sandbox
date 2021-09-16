@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-class NavBar extends React.Component {
-  render() {
-    return (
+//Stateless Function Component (sfc tab)
+const NavBar = ({ totalCounters }) => {
+  console.log('NavBar - Rendered')
+  return (
       <nav className='navbar navbar-light bg-light'>
         <a href='#' className='navbar-brand'>
           Navbar{' '}
           <span className='badge badge-pill badge-secondary'>
-            {this.props.totalCounters}
+            {totalCounters}
           </span>
         </a>
       </nav>
     );
-  }
 }
 
 export default NavBar;

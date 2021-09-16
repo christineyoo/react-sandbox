@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from './components/navBar/navbar.jsx';
-import Counters from './components/counters.jsx';
+import ShoppingCounters from './components/shoppingCounters.jsx';
 
 class App extends React.Component {
   state = {
@@ -11,6 +11,16 @@ class App extends React.Component {
       { id: 4, value: 0 }
     ]
   };
+
+  constructor() {
+    super();
+    console.log('App - Constructor');
+  }
+
+  componentDidMount() {
+    //Ajax call
+    console.log('App - Mounted');
+  }
 
   handleDelete = (counterId) => {
     const counters = this.state.counters.filter(
@@ -36,11 +46,12 @@ class App extends React.Component {
   };
 
   render() {
+    console.log('App - Rendered')
     return (
       <React.Fragment>
         <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length} />
         <main className='container'>
-          <Counters
+          <ShoppingCounters
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
             onDelete={this.handleDelete}
