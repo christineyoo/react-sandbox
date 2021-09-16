@@ -15,20 +15,28 @@ class ShoppingCounter extends React.Component {
 
   render() {
     console.log('Counter - Rendered');
+    const { onIncrement, onDecrement, onDelete, counter} = this.props;
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={() => this.props.onIncrement(this.props.counter)}
-          className='btn btn-secondary btn-sm'
+          onClick={() => onIncrement(counter)}
+          className='btn btn-secondary btn-sm m-2'
         >
-          Increment
+          +
         </button>
         <button
-          onClick={() => this.props.onDelete(this.props.counter.id)}
+          onClick={() => onDecrement(counter)}
+          className='btn btn-secondary btn-sm m-2'
+          disabled={counter.value === 0}
+        >
+          -
+        </button>
+        <button
+          onClick={() => onDelete(counter.id)}
           className='btn btn-danger btn-sm m-2'
         >
-          Delete
+          x
         </button>
         <br />
       </React.Fragment>

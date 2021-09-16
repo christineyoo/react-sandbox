@@ -8,7 +8,7 @@ import ShoppingCounter from './shoppingCounter';
 class ShoppingCounters extends React.Component {
   render() {
     console.log('Counters - Rendered')
-    const { onReset, counters, onDelete, onIncrement } = this.props;
+    const { onReset, counters, onDelete, onIncrement, onDecrement } = this.props;
     return (
       <div>
         <button onClick={onReset} className='btn btn-primary btn-sm m-2'>
@@ -20,6 +20,7 @@ class ShoppingCounters extends React.Component {
             key={counter.id}
             onDelete={onDelete}
             onIncrement={onIncrement}
+            onDecrement={onDecrement}
             counter={counter} //you can pass in the entire counter object
           />
         ))}

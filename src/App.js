@@ -45,15 +45,25 @@ class App extends React.Component {
     this.setState({ counters });
   };
 
+  handleDecrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index].value--;
+    this.setState({ counters });
+  };
+
   render() {
-    console.log('App - Rendered')
+    console.log('App - Rendered');
     return (
       <React.Fragment>
-        <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length} />
+        <NavBar
+          totalCounters={this.state.counters.filter((c) => c.value > 0).length}
+        />
         <main className='container'>
           <ShoppingCounters
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
             counters={this.state.counters}
           />
